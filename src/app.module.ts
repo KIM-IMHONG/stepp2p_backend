@@ -6,6 +6,8 @@ import { SaleModule } from './sale/sale.module'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { User } from './user/entities/user.entity'
 import { ConfigModule, ConfigService } from '@nestjs/config'
+import { SaleTransaction } from './sale/entities/sale_transaction.entity'
+import { Sale } from './sale/entities/sale.entity'
 
 @Module({
   imports: [
@@ -23,7 +25,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config'
         username: config.get('DB_USERNAME'),
         password: config.get('DB_PASSWORD'),
         database: config.get('DB_NAME'),
-        entities: [User],
+        entities: [User, Sale, SaleTransaction],
         synchronize: true,
       }),
     }),

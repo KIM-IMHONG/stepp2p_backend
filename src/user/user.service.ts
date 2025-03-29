@@ -39,4 +39,8 @@ export class UserService {
 
     return this.userRepo.save(user)
   }
+
+  async validateUser(phoneNumber: string) {
+    return await this.userRepo.findOne({ where: { phoneNumber } })
+  }
 }
